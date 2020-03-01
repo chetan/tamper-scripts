@@ -1,9 +1,9 @@
 // ==UserScript==
 // @name         Tweetdeck - Add user col
-// @namespace    https://github.com/chetan
+// @namespace    https://github.com/chetan/tamper-scripts
 // @version      0.1
 // @description  Add a user column with a single click
-// @author       You
+// @author       Chetan Sarva
 // @match        https://tweetdeck.twitter.com/
 // @grant        none
 // @require      https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.js
@@ -73,10 +73,14 @@
       a.className = 'quick-plus';
       // a.setAttribute('data-username', username);
       a.innerText = 'add';
+      let top = icon.offsetParent().position().top + 36;
+      if (top < 44) {
+        top = 44;
+      }
       $(a).css({
         position: 'absolute',
         left: '15px',
-        top: `${icon.offsetParent().position().top + 36}px`,
+        top: `${top}px`,
       });
       tweet.find('.tweet-body').after(a);
       $(a).on('click', onAddClick);
