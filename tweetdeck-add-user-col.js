@@ -38,7 +38,7 @@
         }
         // found it!
         clearInterval(id);
-        resolve(el);
+        resolve($(el));
       }, 50);
     });
   }
