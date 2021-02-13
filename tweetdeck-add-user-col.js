@@ -4,6 +4,7 @@
 // @version      0.1
 // @description  Add a user column with a single click
 // @author       Chetan Sarva
+// @license      MIT
 // @match        https://tweetdeck.twitter.com/
 // @grant        none
 // @require      https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.js
@@ -12,7 +13,7 @@
 // ==/UserScript==
 // console = unsafeWindow.console;
 
-(function() {
+(function () {
   function waitFor(sel) {
     return new Promise((resolve, reject) => {
       const start = performance.now();
@@ -57,7 +58,7 @@
   }
 
   function addPlusButton() {
-    $('span.username').each(function() {
+    $('span.username').each(function () {
       // const username = $(this).text();
       const tweet = $(this).parents('.tweet');
       if (tweet.find('.quick-plus').length > 0) {
